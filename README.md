@@ -8,6 +8,10 @@ The purpose is to take a large markdown file and make a smaller one from that.
 The primary use case is to minimize the amount of context used when loading a 
 large corpus of context into an LLM.
 
+If you have the _opposite_ problem, where you want to take many small, interlinked
+Markdown files and amalgomate them so that agents read _more_ context at a time,
+checkout [catmd](https://github.com/brandonbloom/catmd) instead.
+
 ## How it works
 
 For this first version, the only mechanism to do that is to extract all of the 
