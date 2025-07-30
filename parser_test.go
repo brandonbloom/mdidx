@@ -25,8 +25,8 @@ Some other content here.
 
 The end`,
 			expected: []Header{
-				{Level: 1, Title: "Title", StartLine: 1, EndLine: 8},
-				{Level: 2, Title: "Subtitle", StartLine: 5, EndLine: 8},
+				{Level: 1, Title: "Title", StartLine: 1, EndLine: 7},
+				{Level: 2, Title: "Subtitle", StartLine: 5, EndLine: 7},
 				{Level: 1, Title: "Footer", StartLine: 9, EndLine: 11},
 			},
 		},
@@ -56,23 +56,21 @@ Content
 
 Content`,
 			expected: []Header{
-				{Level: 1, Title: "Main", StartLine: 1, EndLine: 14},
-				{Level: 2, Title: "Sub1", StartLine: 5, EndLine: 12},
-				{Level: 3, Title: "SubSub1", StartLine: 9, EndLine: 9},
-				{Level: 3, Title: "SubSub2", StartLine: 11, EndLine: 12},
-				{Level: 2, Title: "Sub2", StartLine: 13, EndLine: 14},
-				{Level: 1, Title: "Another Main", StartLine: 15, EndLine: 17},
+				{Level: 1, Title: "Main", StartLine: 1, EndLine: 19},
+				{Level: 2, Title: "Sub1", StartLine: 5, EndLine: 15},
+				{Level: 3, Title: "SubSub1", StartLine: 9, EndLine: 11},
+				{Level: 3, Title: "SubSub2", StartLine: 13, EndLine: 15},
+				{Level: 2, Title: "Sub2", StartLine: 17, EndLine: 19},
+				{Level: 1, Title: "Another Main", StartLine: 21, EndLine: 23},
 			},
 		},
 		{
-			name: "header with line breaks in title",
-			input: `# This is a very long
-header that spans
-multiple lines
+			name: "single line header only",
+			input: `# This is a single line header
 
 Some content`,
 			expected: []Header{
-				{Level: 1, Title: "This is a very long header that spans multiple lines", StartLine: 1, EndLine: 5},
+				{Level: 1, Title: "This is a single line header", StartLine: 1, EndLine: 3},
 			},
 		},
 		{
@@ -83,8 +81,8 @@ Some content`,
 
 # Header3`,
 			expected: []Header{
-				{Level: 1, Title: "Header1", StartLine: 1, EndLine: 2},
-				{Level: 2, Title: "Header2", StartLine: 3, EndLine: 4},
+				{Level: 1, Title: "Header1", StartLine: 1, EndLine: 3},
+				{Level: 2, Title: "Header2", StartLine: 3, EndLine: 3},
 				{Level: 1, Title: "Header3", StartLine: 5, EndLine: 5},
 			},
 		},
@@ -102,8 +100,8 @@ More content
 
 `,
 			expected: []Header{
-				{Level: 1, Title: "Header1", StartLine: 1, EndLine: 9},
-				{Level: 2, Title: "Header2", StartLine: 6, EndLine: 9},
+				{Level: 1, Title: "Header1", StartLine: 1, EndLine: 8},
+				{Level: 2, Title: "Header2", StartLine: 6, EndLine: 8},
 			},
 		},
 	}

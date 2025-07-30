@@ -106,7 +106,15 @@ func (p *Parser) findEndLine(headerIndex int) int {
 		}
 	}
 
-	// TODO: Exclude trailing blank lines from section ranges
-	// For now, include all lines up to the next header boundary
+	// Trim trailing empty lines from the section range
+	for nextBoundaryLine > currentHeader.StartLine && strings.TrimSpace(p.lines[nextBoundaryLine-1]) == "" {
+		nextBoundaryLine--
+	}
+
+	// Ensure we don't go before the header itself
+	if nextBoundaryLine < currentHeader.StartLine {
+		nextBoundaryLine = currentHeader.StartLine
+	}
+
 	return nextBoundaryLine
 }

@@ -1,0 +1,57 @@
+source: context/commonmark-spec.md
+comment: >
+  This is a markdown index file created by mdidx. It contains a table of contents with line ranges from the source file.
+  
+  Format: {indent}{start}-{end}: {title}
+  - Each line shows the header title and its line range in the source
+  - Indent is 2 spaces per header level (## = 2 spaces, ### = 4 spaces, etc.)
+  - Line ranges are inclusive and 1-based
+  - To find content for a section, look at those line numbers in the source file
+  
+  Use this index to understand document structure and locate specific content without reading the entire file.
+---
+9-288: Introduction
+  11-101: What is Markdown?
+  103-254: Why is a spec needed?
+  256-288: About this document
+290-821: Preliminaries
+  292-341: Characters and lines
+  343-476: Tabs
+  479-482: Insecure characters
+  485-620: Backslash escapes
+  623-821: Entity and numeric character references
+825-865: Blocks and inlines
+  834-858: Precedence
+  860-865: Container blocks and leaf blocks
+867-3644: Leaf blocks
+  872-1093: Thematic breaks
+  1096-1315: ATX headings
+  1318-1731: Setext headings
+  1734-1930: Indented code blocks
+  1934-2356: Fenced code blocks
+  2360-3157: HTML blocks
+  3159-3511: Link reference definitions
+  3514-3621: Paragraphs
+  3624-3644: Blank lines
+3648-5845: Container blocks
+  3668-4093: Block quotes
+  4097-5214: List items
+    5030-5214: Motivation
+  5216-5845: Lists
+5848-9418: Inlines
+  5865-6095: Code spans
+  6098-7455: Emphasis and strong emphasis
+  7459-8525: Links
+  8529-8753: Images
+  8756-8940: Autolinks
+  8943-9202: Raw HTML
+  9205-9352: Hard line breaks
+  9355-9388: Soft line breaks
+  9390-9418: Textual content
+9420-9756: Appendix: A parsing strategy
+  9425-9461: Overview
+  9463-9603: Phase 1: block structure
+  9605-9756: Phase 2: inline structure
+    9636-9756: An algorithm for parsing nested emphasis and links
+      9666-9695: look for link or image
+      9697-9756: process emphasis
