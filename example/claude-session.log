@@ -1,0 +1,34 @@
+
+> read @context/open-api-spec-v3.1.1.mdidx then tell me about Header objects. only tell me
+   information you learn from reading the spec
+  ⎿  Read context/open-api-spec-v3.1.1.mdidx (219 lines)
+
+⏺ Read(context/open-api-spec-v3.1.1.md)
+  ⎿  Read 99 lines (ctrl+r to expand)
+
+⏺ Header objects describe HTTP response headers and headers in multipart representations.
+  They follow the Parameter Object structure with these key differences:
+
+  - name is not specified (given in the headers map)
+  - in is implicitly "header"
+  - Only style: "simple" is allowed
+  - allowEmptyValue and allowReserved are not permitted
+
+  Common fields:
+  - description: Brief header description (supports CommonMark)
+  - required: Whether mandatory (default: false)
+  - deprecated: Whether deprecated (default: false)
+
+  Schema-based fields:
+  - style: Serialization method (only "simple" for headers)
+  - explode: For arrays/objects, comma-separate values (default: false)
+  - schema: Type definition
+  - example/examples: Value examples
+
+  Content-based fields:
+  - content: Media type map (single entry only, text/plain recommended for complex
+  scenarios)
+
+  Schema approach is not recommended for headers with parameters or non-URL-safe
+  characters. Content approach with text/plain is better for complex cases like ETag
+  headers requiring specific patterns.

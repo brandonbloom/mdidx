@@ -73,6 +73,10 @@ mdidx -o output.mdidx ./original-big-markdown-file.md
 
 Where `-o` is short for `--output`.
 
+## Use Case
+
+See [./example/claude-session.log](./example/claude-session.log) for this in action.
+
 ## Installation
 
 ### From source

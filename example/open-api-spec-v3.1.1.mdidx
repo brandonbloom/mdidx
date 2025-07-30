@@ -1,0 +1,218 @@
+source: open-api-spec-v3.1.1.md
+comment: >
+  This is a markdown index file created by mdidx. It contains a table of contents with line ranges from the source file.
+  
+  Format: {indent}{start}-{end}: {title}
+  - Each line shows the header title and its line range in the source
+  - Indent is 2 spaces per header level (## = 2 spaces, ### = 4 spaces, etc.)
+  - Line ranges are inclusive and 1-based
+  - To find content for a section, look at those line numbers in the source file
+  
+  Use this index to understand document structure and locate specific content without reading the entire file.
+---
+1-4627: OpenAPI Specification
+  3-8: Version 3.1.1
+  9-18: Introduction
+  19-89: Definitions
+    21-24: OpenAPI Description
+    25-28: OpenAPI Document
+    29-34: Schema
+    35-38: Object
+    39-46: Path Templating
+    47-66: Media Types
+    67-71: HTTP Status Codes
+    72-76: Case Sensitivity
+    77-89: Undefined and Implementation-Defined Behavior
+  90-4083: Specification
+    92-97: Versions
+    98-123: Format
+    124-204: OpenAPI Description Structure
+      132-156: Parsing Documents
+      157-166: Structural Interoperability
+      167-204: Resolving Implicit Connections
+    205-272: Data Types
+      215-235: Data Type Format
+      236-272: Working with Binary Data
+        264-272: Migrating binary descriptions from OAS 3.0
+    273-280: Rich Text Formatting
+    281-299: Relative References in API Description URIs
+    300-306: Relative References in API URLs
+    307-4054: Schema
+      316-336: OpenAPI Object
+        320-336: Fixed Fields
+      337-391: Info Object
+        342-355: Fixed Fields
+        356-391: Info Object Example
+      392-421: Contact Object
+        396-405: Fixed Fields
+        406-421: Contact Object Example
+      422-449: License Object
+        426-435: Fixed Fields
+        436-449: License Object Example
+      450-555: Server Object
+        454-463: Fixed Fields
+        464-555: Server Object Example
+      556-569: Server Variable Object
+        560-569: Fixed Fields
+      570-777: Components Object
+        575-603: Fixed Fields
+        604-777: Components Object Example
+      778-855: Paths Object
+        783-790: Patterned Fields
+        791-813: Path Templating Matching
+        814-855: Paths Object Example
+      856-965: Path Item Object
+        862-881: Fixed Fields
+        882-965: Path Item Object Example
+      966-1093: Operation Object
+        970-988: Fixed Fields
+        989-1093: Operation Object Example
+      1094-1120: External Documentation Object
+        1098-1106: Fixed Fields
+        1107-1120: External Documentation Object Example
+      1121-1397: Parameter Object
+        1129-1137: Parameter Locations
+        1138-1188: Fixed Fields
+          1144-1160: Common Fixed Fields
+          1161-1179: Fixed Fields for use with schema
+          1180-1188: Fixed Fields for use with content
+        1189-1204: Style Values
+        1205-1240: Style Examples
+        1241-1397: Parameter Object Examples
+      1398-1490: Request Body Object
+        1402-1411: Fixed Fields
+        1412-1490: Request Body Examples
+      1491-1630: Media Type Object
+        1499-1509: Fixed Fields
+        1510-1571: Media Type Examples
+        1572-1622: Considerations for File Uploads
+        1623-1626: Support for x-www-form-urlencoded Request Bodies
+        1627-1630: Special Considerations for multipart Content
+      1631-1881: Encoding Object
+        1641-1681: Fixed Fields
+          1643-1668: Common Fixed Fields
+          1669-1681: Fixed Fields for RFC6570-style Serialization
+        1682-1768: Encoding the x-www-form-urlencoded Media Type
+          1689-1734: Example: URL Encoded Form with JSON Values
+          1735-1768: Example: URL Encoded Form with Binary Values
+        1769-1881: Encoding multipart Media Types
+          1792-1818: Example: Basic Multipart Form
+          1819-1863: Example: Multipart Form with Encoding Objects
+          1864-1881: Example: Multipart Form with Multiple Files
+      1882-1954: Responses Object
+        1897-1902: Fixed Fields
+        1903-1910: Patterned Fields
+        1911-1954: Responses Object Example
+      1955-2093: Response Object
+        1960-1970: Fixed Fields
+        1971-2093: Response Object Examples
+      2094-2190: Callback Object
+        2102-2109: Patterned Fields
+        2110-2154: Key Expression
+        2155-2190: Callback Object Examples
+      2191-2365: Example Object
+        2198-2211: Fixed Fields
+        2212-2231: Working with Examples
+        2232-2365: Example Object Examples
+      2366-2538: Link Object
+        2375-2396: Fixed Fields
+        2397-2463: Examples
+        2464-2491: operationRef Examples
+        2492-2523: Runtime Expressions
+        2524-2538: Examples
+      2539-2637: Header Object
+        2549-2591: Fixed Fields
+          2551-2562: Common Fixed Fields
+          2563-2582: Fixed Fields for use with schema
+          2583-2591: Fixed Fields for use with content
+        2592-2637: Header Object Example
+      2638-2666: Tag Object
+        2643-2652: Fixed Fields
+        2653-2666: Tag Object Example
+      2667-2722: Reference Object
+        2675-2686: Fixed Fields
+        2687-2698: Reference Object Example
+        2699-2710: Relative Schema Document Example
+        2711-2722: Relative Documents with Embedded Schema Example
+      2723-3280: Schema Object
+        2733-2748: JSON Schema Keywords
+        2749-2759: Fixed Fields
+        2760-2782: Extended Validation with Annotations
+          2766-2770: Non-validating constraint keywords
+          2771-2782: Validating readOnly and writeOnly
+        2783-2818: Data Modeling Techniques
+          2785-2798: Composition and Inheritance (Polymorphism)
+          2799-2807: Generic (Template) Data Structures
+          2808-2813: Annotated Enumerations
+          2814-2818: XML Modeling
+        2819-2829: Specifying Schema Dialects
+        2830-3280: Schema Object Examples
+          2832-2845: Primitive Example
+          2846-2882: Simple Model
+          2883-2918: Model with Map/Dictionary Properties
+          2919-2947: Model with Annotated Enumeration
+          2948-2986: Model with Example
+          2987-3053: Models with Composition
+          3054-3167: Models with Polymorphism Support
+          3168-3280: Generic Data Structure Model
+      3281-3440: Discriminator Object
+        3289-3297: Fixed Fields
+        3298-3310: Conditions for Using the Discriminator Object
+        3311-3321: Options for Mapping Values to Schemas
+        3322-3440: Examples
+      3441-3800: XML Object
+        3448-3465: Fixed Fields
+        3466-3800: XML Object Examples
+          3471-3517: No XML Element
+          3518-3541: XML Name Replacement
+          3542-3591: XML Attribute, Prefix and Namespace
+          3592-3800: XML Arrays
+      3801-3911: Security Scheme Object
+        3808-3822: Fixed Fields
+        3823-3911: Security Scheme Object Examples
+          3825-3838: Basic Authentication Example
+          3839-3854: API Key Example
+          3855-3870: JWT Bearer Example
+          3871-3884: MutualTLS Example
+          3885-3911: Implicit OAuth2 Example
+      3912-3926: OAuth Flows Object
+        3916-3926: Fixed Fields
+      3927-3982: OAuth Flow Object
+        3931-3941: Fixed Fields
+        3942-3982: OAuth Flow Object Example
+      3983-4054: Security Requirement Object
+        3996-4001: Patterned Fields
+        4002-4054: Security Requirement Object Examples
+          4006-4017: Non-OAuth2 Security Requirement
+          4018-4031: OAuth2 Security Requirement
+          4032-4054: Optional OAuth2 Security
+    4055-4071: Specification Extensions
+    4072-4083: Security Filtering
+  4084-4114: Security Considerations
+    4086-4094: OpenAPI Description Formats
+    4095-4098: Tooling and Usage Scenarios
+    4099-4102: Security Schemes
+    4103-4106: Handling External Resources
+    4107-4110: Handling Reference Cycles
+    4111-4114: Markdown and HTML Sanitization
+  4115-4136: Appendix A: Revision History
+  4137-4164: Appendix B: Data Type Conversion
+  4165-4420: Appendix C: Using RFC6570-Based Serialization
+    4186-4220: Equivalences Between Fields and RFC6570 Operators
+    4221-4229: Delimiters in Parameter Values
+    4230-4243: Non-RFC6570 Field Values and Combinations
+    4244-4420: Examples
+      4259-4291: RFC6570-Equivalent Expansion
+      4292-4353: Expansion with Non-RFC6570-Supported Options
+      4354-4391: Undefined Values and Manual URI Template Construction
+      4392-4420: Illegal Variable Names as Parameter Names
+  4421-4442: Appendix D: Serializing Headers and Cookies
+  4443-4531: Appendix E: Percent-Encoding and Form Media Types
+    4456-4465: Percent-Encoding and form-urlencoded
+    4466-4472: Percent-Encoding and form-data
+    4473-4508: Generating and Validating URIs and form-urlencoded Strings
+      4495-4500: Interoperability with Historical Specifications
+      4501-4508: Interoperability with Web Browser Environments
+    4509-4516: Decoding URIs and form-urlencoded Strings
+    4517-4531: Percent-Encoding and Illegal or Reserved Delimiters
+  4532-4627: Appendix F: Resolving Security Requirements in a Referenced Document
