@@ -8,13 +8,27 @@ import (
 	"strings"
 )
 
+const defaultComment = `This is a markdown index file created by mdidx. It contains a table of contents with line ranges from the source file.
+
+Format: {indent}{start}-{end}: {title}
+- Each line shows the header title and its line range in the source
+- Indent is 2 spaces per header level (## = 2 spaces, ### = 4 spaces, etc.)
+- Line ranges are inclusive and 1-based
+- To find content for a section, look at those line numbers in the source file
+
+Use this index to understand document structure and locate specific content without reading the entire file.`
+
 func main() {
 	var outputFile string
 	var showHelp bool
+	var addPreamble bool
+	var noPreamble bool
 
 	flag.StringVar(&outputFile, "o", "", "Output file (default: input.mdidx for files, stdout for stdin)")
 	flag.StringVar(&outputFile, "output", "", "Output file (default: input.mdidx for files, stdout for stdin)")
 	flag.BoolVar(&showHelp, "help", false, "Show help message")
+	flag.BoolVar(&addPreamble, "preamble", false, "Add explanatory preamble to help LLM agents understand the format")
+	flag.BoolVar(&noPreamble, "no-preamble", false, "Disable the default preamble (default preamble is added for file input, not for stdin)")
 	flag.Parse()
 
 	if showHelp {
@@ -78,6 +92,19 @@ func main() {
 
 	// Generate index
 	generator := NewIndexGenerator(sourcePath, headers, warnings)
+
+	// Determine if preamble should be added
+	shouldAddPreamble := false
+	if addPreamble {
+		shouldAddPreamble = true
+	} else if !noPreamble {
+		// Default behavior: add preamble for file input, not for stdin
+		shouldAddPreamble = (sourcePath != "")
+	}
+
+	if shouldAddPreamble {
+		generator.SetComment(defaultComment)
+	}
 	output := generator.Generate()
 
 	// Write output
@@ -114,13 +141,17 @@ Arguments:
   file          Input markdown file (if not provided, reads from stdin)
 
 Options:
-  -o, --output  Output file (default: input.mdidx for files, stdout for stdin)
-  --help        Show this help message
+  -o, --output     Output file (default: input.mdidx for files, stdout for stdin)
+  --preamble       Add explanatory preamble to help LLM agents understand the format
+  --no-preamble    Disable the default preamble (default: preamble added for file input, not for stdin)
+  --help           Show this help message
 
 Examples:
-  mdidx document.md                    # Creates document.mdidx
-  mdidx -o index.mdidx document.md     # Creates index.mdidx
-  mdidx < document.md > index.mdidx    # Read from stdin, write to stdout
+  mdidx document.md                    # Creates document.mdidx with preamble (default for files)
+  mdidx --no-preamble document.md      # Creates document.mdidx without preamble
+  mdidx -o index.mdidx document.md     # Creates index.mdidx with preamble
+  mdidx < document.md > index.mdidx    # Read from stdin, write to stdout (no preamble by default)
+  echo "# Test" | mdidx --preamble     # Force preamble for stdin input
 `)
 }
 

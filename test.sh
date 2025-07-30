@@ -126,7 +126,42 @@ else
     test_passed "Correctly handles nonexistent file"
 fi
 
-# Test 6: Error handling - too many arguments
+# Test 6: Preamble functionality
+run_test "Preamble functionality"
+
+# Test default preamble for file input
+./mdidx test_simple.md
+if grep -q "This is a markdown index file created by mdidx" test_simple.mdidx; then
+    test_passed "Default preamble added for file input"
+else
+    test_failed "Default preamble missing for file input"
+fi
+
+# Test --no-preamble flag
+./mdidx --no-preamble test_simple.md
+if ! grep -q "This is a markdown index file created by mdidx" test_simple.mdidx; then
+    test_passed "--no-preamble flag works"
+else
+    test_failed "--no-preamble flag not working"
+fi
+
+# Test stdin has no preamble by default
+output=$(echo -e "# Test\n\nContent" | ./mdidx)
+if ! echo "$output" | grep -q "This is a markdown index file created by mdidx"; then
+    test_passed "No preamble for stdin by default"
+else
+    test_failed "Stdin unexpectedly has preamble"
+fi
+
+# Test --preamble flag with stdin
+output=$(echo -e "# Test\n\nContent" | ./mdidx --preamble)
+if echo "$output" | grep -q "This is a markdown index file created by mdidx"; then
+    test_passed "--preamble flag works with stdin"
+else
+    test_failed "--preamble flag not working with stdin"
+fi
+
+# Test 7: Error handling - too many arguments
 run_test "Error handling for too many arguments"
 if ./mdidx file1.md file2.md 2>/dev/null; then
     test_failed "Should have failed for too many arguments"
